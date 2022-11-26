@@ -1,0 +1,137 @@
+﻿# -------------------------------------------------------------------------------
+label splashscreen:
+    scene black #We start with a black scene
+    $ renpy.pause(1, hard=True) #Pauses the black screen for a second. This command pauses renpy, hence makes it unable to click
+    
+    show white at transform_white #next we swho our white screen with our made transformation
+    $ renpy.pause(1.5, hard=True) #For this its important to know the transformation time. Since the transformation is "happening" at the same time, the pause needs to be at least as long as the transformation. Otherwise it gets cut off.
+    
+    show logo at transform_logo #Next, we are showing our logo with our logo transformation.
+    $ renpy.pause(2, hard=True) #Our logo takes 2 second to appear, however, we want it to stay on the screen for a while, hence we are using 6 instead of 2 seconds, so it stays for 4 seconds.
+    
+    hide logo #Next we are hiding our logo
+    $ renpy.pause(1.5, hard=True) #Since the transformation is 2 seconds long, the pause here is 2 seconds long.
+    
+    show logo2 at transform_logo #Next, we are showing our logo with our logo transformation.
+    $ renpy.pause(2, hard=True) #Our logo takes 2 second to appear, however, we want it to stay on the screen for a while, hence we are using 6 instead of 2 seconds, so it stays for 4 seconds.
+    
+    hide logo2 #Next we are hiding our logo
+    $ renpy.pause(1.5, hard=True) #Since the transformation is 2 seconds long, the pause here is 2 seconds long.
+    
+    hide white #Next we are hiding our background.
+    $ renpy.pause(2, hard=True) # Our hiding transformation for the white bg takes 2 seconds, but since we want the screen to stay black for a second, like at the beginning, we use 3 instead.
+    
+    #$ renpy.movie_cutscene('opening.webm') #Next we are showing our video. This one is skipable
+    return
+
+#label opening:
+#    $ renpy.movie_cutscene('opening.webm')
+#    jump before_main_menu #This needs to be set to this as its a screen that appears before the main_menu and is the one we will use for our "Press to Start" screen. 
+
+label before_main_menu:
+    call screen press_to_start #Here, we are calling our already made "Press to Start" screen.
+        
+
+# Game dimulai disini.
+        
+label start:
+    
+    ## Mematikan fungsi tombol ESC, klik kanan dan membuka menu
+    $ _game_menu_screen = None
+    
+    ## Menghentikan musik lagu di main menu
+    stop music
+
+    ## Sembunyikan quick_menu sampai dialog cerita muncul
+    $ quick_menu = False
+    
+    "Selamat datang pada Visual Novel Raina: Decision of Choice!"
+    
+    "Apapun pilihanmu nanti,{w} akan mencapai tujuan akhir yang berbeda-beda."
+    
+    "Dalam perjalananmu mencapai tujuan akhir itu,{w} akan ada seorang gadis yang akan selalu menemanimu."
+    
+    "Dia akan menemanimu,{w} kapanpun dan dimanapun kamu berada."
+    
+    "Tidak peduli alur cerita mana yang akan kamu pilih,{w} dia akan berada di sana."
+    
+    "Selalu."
+    
+    label inputName:
+        scene white with dissolve
+        
+        python:
+            player = renpy.input(_("{u}Siapakah namamu? (Silahkan ketikkan pada {i}keyboard{/i}-mu dalam 8 karakter){/u}"), allow=" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSSTUVWXYZ", length=8)
+
+            player = player.title()
+            player = player.strip()
+            if player == "":
+                player = __("Dase")
+        
+        define p = Character('[player]', ctc="ctc_blink", ctc_position="nestled")
+
+        "Apakah \"[player!t]\" benar namamu?"
+
+        menu:
+            "Benar":
+                "Okesip, [player!t]."
+            "Tidak, aku typo":
+                "Santai, silahkan masukkan namamu kembali, kalau begitu."
+                jump inputName
+        
+        "Selamat bermain! :)"
+        jump pilihCerita
+    # -------------------------------------------------------------------------------
+    label pilihCerita:
+        ## Mengaktifkan kembali fungsi tombol ESC, klik kanan dan membuka menu
+        $ _game_menu_screen = 'save'
+        $ save_name = player
+        
+        show bg path with fade
+        
+        "Halo!"
+        
+        "Terima kasih karena sudah mau mencoba bermain Visual Novel Raina : Decision of Choice."
+        
+        "Semoga kalian betah bermain! :)"
+        
+        "Disarankan untuk mematikan fitur Rollback pada Menu Preferensi, demi tercapainya ending yang akurat."
+        
+        "Jadi, Visual Novel ini ada beberapa pilihan cerita."
+        
+        "Mau pilih yang mana?"
+        
+        label pilih:
+            menu :
+                "Hidup sederhana dengan alam yang segar":
+                    "Baguslah kalau sudah milih."
+                    "Selamat menikmati alur ceritamu! :)"
+                    call adding( "Trust" , +10) # Kepercayaan
+            
+                    pause 0.3
+            
+                    call adding( "Bond" , +7 ) # Ikatan/Kedekatan
+            
+                    pause 0.3
+            
+                    call adding( "Knowledge" , +10) # Pengetahuan akan MC
+            
+                    pause 0.3
+            
+                    call adding( "Interest" , +12) # Ketertarikan
+                    $ persistent.raina_in_masa_lalu = True
+                    jump adventurer_adegan001
+                    
+                "Aku tertarik menjadi komikus":
+                    "Mohon maaf, tapi cerita ini belum siap"
+                    jump pilih
+                    # jump komikus_adegan001
+                    
+                #"???":
+                    #"Mohon maaf, tapi cerita ini belum siap"
+                    #jump pilih
+                    # jump ???_adegan001
+    
+$ persistent.runtime = 0
+$ calc_total_run()
+$ MainMenu(confirm=False)() # return 

@@ -1,0 +1,278 @@
+label adventurer_adegan001:
+        
+    $ quick_menu = True
+    show screen control()
+    show screen stat_box()
+    
+    show white with flash
+    
+    show bg kamar with dissolve
+    
+    play sound bird_chirping loop
+    "...{p}...."
+    p """Ah, aku tadi habis memilih sesuatu dari makhluk itu.
+    
+      Dewi, kah?{w} Entahlah, wujudnya saja gak keliatan.
+    
+      Mungkin juga cuman mimpi.
+    
+      ...
+      
+      Ah,{w} sudah terang.
+      
+      Sudah terang?!
+
+      Aku bisa telat!
+    """
+    
+    play sound footsteps_woodfloor
+    
+    show bg r_utama with dissolve
+    
+    show bg k_mandi with dissolve
+    "{w}...{p}....{p}....."
+    
+    p "Oke, aku siap."
+    
+    show bg r_utama with dissolve
+    
+    stop sound 
+    p "Siap-siap dulu."
+    
+    play sound masak loop
+    p "Oiya, lagi gak ada orang."
+    p "Mesti masak du-"
+    
+    show raina_masa_lalu happy4 at sprite_karakter
+    r "Hm, hm..."
+    p "Raina?"
+    
+    show raina_masa_lalu happy3
+    r "Hm?"
+    
+    stop sound
+    
+    show raina_masa_lalu smirk_little
+    r "Oh, kau sudah bangun."
+    p "Kau sudah datang, toh?" 
+    
+    show raina_masa_lalu neutral
+    r "Jelas, lah! Lagian sudah siang." 
+    
+    play sound masak loop
+    show raina_masa_lalu happy4_little
+    
+    "Raina masih cantik dan imut seperti biasa."
+    
+    "Dia juga rajin.{w} Saking rajinnya, dia tiap hari bangun pagi buatin sarapan."
+    
+    "Harusnya dia gak usah repot-repot begitu. "
+    
+    "Tapi tiap kita bilang itu kepadanya,{w} dia bersikeras melakukannya sebagai balas budi."
+    
+    "Padahal dia diterima terbuka tinggal di sini, tapi dia pun enggan."
+    
+    show raina_masa_lalu happy6
+    r "Oiya, [player!t]."
+    p "?"
+    
+    show raina_masa_lalu neutral
+    r "Hari ini kita mesti pergi ke balai kota, kan?"
+    p "Iya. Kenapakah?"
+    
+    show raina_masa_lalu happy5_little
+    r "Gapapa. Takut lupa aja."
+    p "O-Oke."
+    
+    stop sound
+    
+    show raina_masa_lalu blink
+    r "Oke, sarapan dah jadi."
+    
+    hide raina_masa_lalu
+    "Yah, makanannya enak, sih."
+    
+    "Cukup mencium baunya saja sudah nagih."
+    
+    "Kubantu saja dia menyiapkan tempat makan."
+    
+    "Kita pun makan.{w} Makanannya memang sangat enak, aku sampai melahapnya dengan mantap."
+    
+    show raina_masa_lalu geli at sprite_karakter
+    "Aku juga bisa melihatnya tertawa kecil."
+    
+    hide raina_masa_lalu
+    "...{p}...."
+    
+    show bg r_utama with dissolve 
+    
+    show raina_masa_lalu happy at sprite_karakter
+    r "Oke, biar aku aja yang bersihkan mejanya. Kau siap-siap, sudah."
+    
+    show raina_masa_lalu smirk_little
+    r "Nanti misinya keburu diambil orang."
+    
+    p "Iya, iya."
+    
+    show bg d_rumah with dissolve 
+    
+    show raina_masa_lalu neutral
+    r "Ayo, [player!t]!"
+    
+    hide raina_masa_lalu
+    
+    show bg balai_kota with dissolve
+    
+    show raina_masa_lalu ouch_little at sprite_karakter
+    r "Akhirnya sampai juga."
+    
+    show raina_masa_lalu neutral
+    r "Ayo, kita liat bilah pengumuman di situ."
+    
+    hide raina_masa_lalu with dissolve
+    
+    """Rame seperti biasanya.
+    
+    Tampaknya lagi banyak yang pengen ngambil misi.
+    
+    Yah, sudah akhir bulan.{w} Bahkan aku bisa ngeliat beberapa orang yang jarang keluar rumah ada di sana.
+    """
+    
+    show raina_masa_lalu neutral at sprite_karakter with dissolve 
+    r "Hmm"
+    p "Sudah ketemu misi yang bagus, kah?"
+    r "Sudah, sih.{w} Tapi aku bingung mesti milih yang mana."
+    
+    show raina_masa_lalu confused
+    r "Bantuin, dong!"
+    p "Okelah."
+    
+    ## Penentu arah cerita dimulai dari sini
+    label memilih_misi_penting:
+        menu:
+            "Menyelidiki pantai":
+                jump menyelidiki_pantai
+            "Mengumpulkan material":
+                jump mengumpulkan_material
+            "Menjelajahi reruntuhan":
+                jump menjelajahi_reruntuhan
+    
+    label menyelidiki_pantai:
+        call adding( "Trust" , +1) # Kepercayaan
+        
+        pause 0.3
+        
+        call adding( "Bond" , +2 ) # Ikatan/Kedekatan
+        
+        pause 0.3
+        
+        call adding( "Knowledge" , +1) # Pengetahuan akan MC
+        
+        pause 0.3
+        
+        call adding( "Interest" , +5) # Ketertarikan
+        
+        show raina_masa_lalu happy
+        r "Pilihan bagus."
+        r "Hari ini panas banget, juga."
+        r "Aku pergi ke resepsionis, kalo gitu."
+        
+        jump adventurer_adegan002_menyelidiki_pantai
+        
+    label mengumpulkan_material:
+        
+        jump memilih_misi_penting
+        
+    label menjelajahi_reruntuhan:
+        
+        jump memilih_misi_penting
+
+label adventurer_adegan002_menyelidiki_pantai:
+    hide raina_masa_lalu with dissolve
+    
+    pause 1.5
+    
+    show raina_masa_lalu neutral at sprite_karakter with dissolve
+    r "Oke, misi kita sudah terdaftar."
+    
+    show raina_masa_lalu blink
+    r "Ayo, cepat pulang."
+    r "Kita mesti siap-siap."
+    
+    hide raina_masa_lalu with dissolve
+    
+    """Bersemangat sekali.
+    
+    Dia memang suka pantai sih.
+    
+    Setelahnya, kami kembali ke rumah, lalu mengambil beberapa perlengkapan.
+    """
+    
+    show bg d_rumah with dissolve
+    
+    show bg r_utama with dissolve
+    "Hmm, aku akan membawa tombak dan pedangku, untuk berjaga-jaga."
+    
+    "Lalu untuk jaring, pisau, karung, dan lain-lain.{w} Hmm..."
+    
+    "Kuserahkan ke Raina saja."
+    
+    show raina_masa_lalu confused at sprite_karakter
+    "..."
+    p "Ada apa, Raina?"
+    
+    show raina_masa_lalu btm at sprite_karakter
+    r "Ah, enggak. Cuman bingung mesti bawa {i}potion{/i} apa."
+    p "Sangat terlihat."
+    r neutral "Ne, bantuin milih, dong!"
+    
+    p "Eh. Kenapa gak milih sendiri?"
+    
+    if Trust > 10:
+       call adding_one( "Trust", -2 )
+    
+    show raina_masa_lalu teehee at sprite_karakter
+    r "Kan aku bingung."
+    
+    show raina_masa_lalu neutral
+    p "Okelah, kupilihkan."
+    
+    show raina_masa_lalu smirk_little
+    r "Yeay!"
+    
+    ## Menu memilih potion, akan dipakai berulang kali
+    call potion_coiching
+    
+    jump adventurer_adegan003_menyelidiki_pantai
+        
+label adventurer_adegan003_menyelidiki_pantai:
+    show bg d_rumah with dissolve
+    
+    hide raina_masa_lalu with dissolve
+    
+    show raina_masa_lalu neutral at sprite_karakter with dissolve
+    p "Kau dah siap, belum?"
+    r "Dah."
+    
+    show raina_masa_lalu smirk2_little
+    r "Yok!"
+    
+    hide raina_masa_lalu
+    
+    show bg hutan with dissolve
+    """Kita pun berangkat ke lokasi.
+    
+    Tempatnya tidak begitu jauh, namun perlu waktu perjalanan yang cukup lama.
+    
+    Kurang lebih sekitar 2 kali merajut baju sehari-hari untuk anak kecil laki-laki.
+    
+    Cuacanya memang panas, tapi udaranya tetap terasa sejuk ketika sudah sampai di dalam daerah hutan.
+    
+    Ada jalan di sini, karena memang digunakan secara umum oleh warga desa sekitar.
+    
+    """
+    
+    show raina_masa_lalu neutral at sprite_karakter with dissolve
+    ""
+
+return
