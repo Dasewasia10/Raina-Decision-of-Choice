@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/ending.rpy", line 11: reached end of line when expecting ':'.
+    if 
+       ^
+
+Ren'Py Version: Ren'Py 8.0.2.22081402
+Tue Nov  8 13:55:36 2022

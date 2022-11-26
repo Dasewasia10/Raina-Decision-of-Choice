@@ -1,0 +1,56 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+After initialization, but before game start.
+  File "game/ending.rpy", line 3, in analyze_screen
+    screen ending_screen(message):
+  File "game/ending.rpy", line 3, in analyze
+    screen ending_screen(message):
+  File "game/ending.rpy", line 3, in analyze
+    screen ending_screen(message):
+  File "game/ending.rpy", line 16, in analyze
+    frame:
+  File "game/ending.rpy", line 16, in analyze
+    frame:
+  File "game/ending.rpy", line 19, in analyze
+    if stat_rerata < 21 and total_seconds = 4000:
+SyntaxError: invalid syntax (game/ending.rpy, line 19)
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\bootstrap.py", line 274, in bootstrap
+    renpy.main.main()
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\main.py", line 660, in main
+    run(restart)
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\main.py", line 87, in run
+    renpy.display.screen.analyze_screens()
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\display\screen.py", line 946, in analyze_screens
+    s.ast.analyze_screen()
+  File "game/ending.rpy", line 3, in analyze_screen
+    screen ending_screen(message):
+  File "game/ending.rpy", line 3, in analyze
+    screen ending_screen(message):
+  File "game/ending.rpy", line 3, in analyze
+    screen ending_screen(message):
+  File "game/ending.rpy", line 16, in analyze
+    frame:
+  File "game/ending.rpy", line 16, in analyze
+    frame:
+  File "game/ending.rpy", line 19, in analyze
+    if stat_rerata < 21 and total_seconds = 4000:
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\py3analysis.py", line 540, in is_constant_expr
+    node, literal = ccache.ast_eval_literal(expr)
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\py3analysis.py", line 772, in ast_eval_literal
+    expr = py_compile(expr, 'eval', ast_node=True)
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\python.py", line 1018, in py_compile
+    raise e
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\python.py", line 970, in py_compile
+    raise orig_e
+  File "D:\Aplikasi\Ren'Py\renpy-7.4.10-sdk\renpy\python.py", line 963, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/ending.rpy, line 19)
+
+Windows-10-10.0.19043 AMD64
+Ren'Py 8.0.2.22081402
+Raina Decision of Choice 0.3
+Tue Nov  8 14:09:29 2022
