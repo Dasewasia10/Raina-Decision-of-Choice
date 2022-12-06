@@ -31,13 +31,18 @@ label adventurer_adegan_prolog:
 
     label masa_lalu_prolog_kanan:
         show bg pantai with dissolve
+
+        play music hari_senang fadein 0.5 fadeout 0.5
+
+        play sound people fadein 0.5 fadeout 0.5
+
         """Okelah, aku akan langsung mendatangi mereka dulu.
 
         Tampaknya rame, juga.
 
-	Oh iya, mungkin aku bisa dapat beberapa barang bagus.
+        Oh iya, mungkin aku bisa dapat beberapa barang bagus.
 
-	Lumayan.
+        Lumayan.
 
         ...
 
@@ -50,7 +55,7 @@ label adventurer_adegan_prolog:
         """
         Ah, waktunya istirahat. 
 
-	Jalan-jalan sebentar, lah.
+	    Jalan-jalan sebentar, lah.
         """
         
         jump masa_lalu_prolog
@@ -59,19 +64,26 @@ label adventurer_adegan_prolog:
         show bg pantai with dissolve
         """Oh, okelah. 
 
-	Kayaknya mereka bakal aman-aman saja.
+        Kayaknya mereka bakal aman-aman saja.
 
-	Aku berkeliling saja, kalau gitu.
+        Aku berkeliling saja, kalau gitu.
         """
         
+        stop sound 
+
         jump masa_lalu_prolog
         
     label masa_lalu_prolog:
+
+        stop music
+        
+        play sound air_laut fadein 1.0 fadeout 1.0
+
         """...
 
-	....
+        ....
 
-	Hm. Sepertinya ada sesuatu di sana.
+        Hm. Sepertinya ada sesuatu di sana.
 
         Tampaknya di sana ada sesuatu.
 
@@ -85,6 +97,9 @@ label adventurer_adegan_prolog:
         """
 
         show cg mm_raina_masa_lalu with fade
+
+        play music hari_senang fadein 0.5 fadeout 0.5
+        
         r happy4_little "Hmm, hmm..."
         p "Perempuan?"
         
@@ -127,6 +142,8 @@ label adventurer_adegan_prolog:
         r confused "Kenapa?"
         p "Di situ banyak bulu babi."
         hide cg mm_raina_masa_lalu
+
+        play music keadaan_genting fadein 0.5 fadeout 0.5
         
         show raina_masa_lalu scared at sprite_karakter
         r "EH?!"
@@ -143,7 +160,8 @@ label adventurer_adegan_prolog:
         r "Kurang ajar! Jahat!"
         p "Hahahahaha!"
         p "Balasan dariku."
-
+        stop music
+        
         show raina_masa_lalu angry_shy
         """Dia masih menatapku dengan sangat kesal.
         
@@ -155,6 +173,8 @@ label adventurer_adegan_prolog:
         
         Lalu dia kembali menatapku dengan kesal.
         """
+
+        play music hari_senang fadein 0.5 fadeout 0.5
 
         show raina_masa_lalu shy2_half
         r "Apa kau keberatan?"
@@ -201,7 +221,7 @@ label adventurer_adegan_prolog:
         
         show raina_masa_lalu teehee_little
         r "Ehehe, maaf."
-        mn "Padahal ini terakhir kali kita bersama."
+        mn "Padahal ini terakhir kali kau di sini."
         
         "?"
         
@@ -213,15 +233,15 @@ label adventurer_adegan_prolog:
         
         r "Kau di situ. Kenapa malah jadi bingung sendiri?"
         
-        p "Ah, itu."
+        p "Ah, itu..."
         
         p "Aku gak nangkap kalian ngomongin apa."
         
-        r "Owalah, kirain kenapa."
+        r "Owalah, kirain apa."
         
         mn "Kalau begitu, aku saja yang beritahu."
         
-        mn "Dia ini, Raina ini, mulai hari ini bakal tinggal di desa ini."
+        mn "Dia ini, mulai hari ini bakal tinggal di desa ini."
         
         $ raina_name = "Raina"
         
@@ -254,10 +274,11 @@ label adventurer_adegan_prolog:
         
         menu:
             "Membiarkannya tinggal di tempatku.":
-                call adding_one( "Bond", + 2 )
+                call adding_one( "Bond", + 2 ) from _call_adding_one_8
+                $ tinggal_seatap = True
                 "Yah, melakukan itu tidak merugikanku sama sekali, sih."
             "Meminta dia tinggal di rumah bibi sebelah tempat tinggalku.":
-                call adding_one( "Bond", - 1 )
+                call adding_one( "Bond", - 1 ) from _call_adding_one_9
                 "Mau aku tinggal sendiri, bukan berarti aku bisa asal ajak perempuan tinggal seatap denganku."
                 "Mikir dikit lah, pak kades."
                 
@@ -270,6 +291,10 @@ label adventurer_adegan_prolog:
         Lalu, sudah satu tahun sejak kedatangan Raina.
         """
         
+        stop music
+
+        stop sound
+
         call adding( "Trust" , + 10) from _call_adding # Kepercayaan
 
         pause 0.3
@@ -293,19 +318,22 @@ label adventurer_adegan001:
     show bg r_utama with fade
     
     play sound bird_chirping loop fadein 1.0 fadeout 1.0 
+
+    play music hari_senang fadein 0.5 fadeout 0.5
+        
     "..."
     
     "Hari ini mesti ke balai kota, lalu setelahnya..."
     
     "Hmm..."
     
-    play sound masak loop
-    show raina_masa_lalu happy4_little
+    play sound masak loop fadein 0.5 fadeout 0.5
+    show raina_masa_lalu happy4_little at sprite_karakter
     
     p "Raina?"
     
     show raina_masa_lalu neutral
-    r "Ya? Kenapa, [playet!t]?"
+    r "Ya? Kenapa, [player!t]?"
     
     p "Jangan lupa kita mesti ke balai kota habis ini!"
     
@@ -325,7 +353,7 @@ label adventurer_adegan001:
     Ngomong-ngomong, sudah setahun sejak dia datang ke desa ini.
     """
     
-    show raina_masa_lalu happy6
+    show raina_masa_lalu happy6 at sprite_karakter
     r "Oiya, [player!t]."
     p "?"
     
@@ -386,9 +414,16 @@ label adventurer_adegan001:
 
     pause 1.0
 
+    stop music
+
     show bg balai_kota with dissolve
+
+    play sound people
     
     show raina_masa_lalu ouch_little at sprite_karakter with dissolve
+
+    play music hari_senang2 fadein 0.5 fadeout 0.5
+        
     r "Akhirnya sampai juga."
     
     show raina_masa_lalu neutral
@@ -413,23 +448,23 @@ label adventurer_adegan001:
                 jump menyelidiki_pantai
             "Mengumpulkan material":
                 jump mengumpulkan_material
-            "Menjelajahi reruntuhan":
-                jump menjelajahi_reruntuhan
+            # "Menjelajahi reruntuhan":
+            #     jump menjelajahi_reruntuhan
     
     label menyelidiki_pantai:
-        call adding( "Trust" , -1) # Kepercayaan
+        call adding( "Trust" , -1) from _call_adding_4 # Kepercayaan
         
         pause 0.3
         
-        call adding( "Bond" , +2 ) # Ikatan/Kedekatan
+        call adding( "Bond" , +2 ) from _call_adding_5 # Ikatan/Kedekatan
         
         pause 0.3
         
-        call adding( "Knowledge" , +1) # Pengetahuan akan MC
+        call adding( "Knowledge" , +1) from _call_adding_6 # Pengetahuan akan MC
         
         pause 0.3
         
-        call adding( "Interest" , +5) # Ketertarikan
+        call adding( "Interest" , +5) from _call_adding_7 # Ketertarikan
         
         show raina_masa_lalu happy
         r "Pilihan bagus."
@@ -440,15 +475,15 @@ label adventurer_adegan001:
         
     label mengumpulkan_material:
 
-        call adding( "Bond" , +1) # Ikatan/Kedekatan
+        call adding( "Bond" , +1) from _call_adding_8 # Ikatan/Kedekatan
         
         pause 0.3
         
-        call adding( "Knowledge" , +2) # Pengetahuan akan MC
+        call adding( "Knowledge" , +2) from _call_adding_9 # Pengetahuan akan MC
         
         pause 0.3
         
-        call adding( "Interest" , -2) # Ketertarikan
+        call adding( "Interest" , -2) from _call_adding_10 # Ketertarikan
         
         show raina_masa_lalu happy2 at sprite_karakter
         r "Ah, boleh-boleh aja sih."
@@ -457,28 +492,10 @@ label adventurer_adegan001:
         
         jump adventurer_adegan002_mengumpulkan_material
         
-    label menjelajahi_reruntuhan:
-        call adding( "Bond" , +1) # Ikatan/Kedekatan
-        
-        pause 0.3
-        
-        call adding( "Knowledge" , +3) # Pengetahuan akan MC
-        
-        pause 0.3
-        
-        call adding( "Interest" , +2) # Ketertarikan
-        
-        show raina_masa_lalu confused at sprite_karakter
-        r "Hmm..."
-        r "Ke sana siang-siang begini rasanya bakal panas, deh."
-        
-        show raina_masa_lalu happy
-        r "Gapapa, lah. Kalau gak salah ada info barang bagus di sana."
-        r "Bisalah buat nambahin uang saku."
-        
-        jump adventurer_adegan002_menjelajahi_reruntuhan
 
 label adventurer_adegan002_menyelidiki_pantai:
+    stop music
+
     hide raina_masa_lalu with dissolve
     
     pause 1.5
@@ -498,9 +515,14 @@ label adventurer_adegan002_menyelidiki_pantai:
     Setelahnya, kami kembali ke rumah, lalu mengambil beberapa perlengkapan.
     """
     
+    stop sound 
+    
     show bg d_rumah with dissolve
     
     show bg r_utama with dissolve
+
+    play music hari_senang2 fadein 0.5 fadeout 0.5
+        
     "Hmm, aku akan membawa tombak dan pedangku, untuk berjaga-jaga."
     "Lalu untuk jaring, pisau, karung, dan lain-lain.{w} Hmm..."
     "Kuserahkan ke Raina saja."
@@ -515,10 +537,7 @@ label adventurer_adegan002_menyelidiki_pantai:
     r neutral "Ne, bantuin milih, dong!"
     
     p "Eh. Kenapa gak milih sendiri?"
-    
-    if Trust > 10:
-        call adding_one( "Trust", -2 ) from _call_adding_one_8
-    
+
     show raina_masa_lalu teehee at sprite_karakter
     r "Kan aku bingung."
     
@@ -552,21 +571,20 @@ label adventurer_adegan003_menyelidiki_pantai:
     
     Tempatnya tidak begitu jauh, namun perlu waktu perjalanan yang cukup lama.
     
-    Kurang lebih sekitar 2 kali merajut baju sehari-hari untuk anak kecil laki-laki.
-    
     Cuacanya memang panas, tapi udaranya tetap terasa sejuk ketika sudah sampai di dalam daerah hutan.
-    
-    Ada jalan di sini, karena memang digunakan secara umum oleh warga desa sekitar.
     """
     
     show cg masa_lalu_1 with flash
+
+    play music happy_ending fadein 0.5 fadeout 0.5
+        
     p "Raina?"
     r neutral "Kenapa, [player]?"
     p "Ah, enggak."
     p "Cuman kepikiran, pas kau pertama kali ke desa ini."
     r happy "Ah, pas itu, ya."
     r happy4 "Jadi keingat juga."
-    r happy5 "Soalnya, saat itu kau sangat lawak."
+    r shy2 "Jahat sekali kau pas itu."
     p "Eh."
     p "Benar juga. Tolong lupakan."
     r smirk_little "Gak mau."
@@ -581,11 +599,223 @@ label adventurer_adegan003_menyelidiki_pantai:
     
     hide bg hutan
     
+    stop music
+
     pause 0.7
     
     show bg pantai with dissolve
-    r "" 
+
+    show raina_masa_lalu happy2 at sprite_karakter with dissolve
+
+    play sound air_laut fadein 1.0 fadeout 1.0
+
+    play music hari_senang2 fadein 0.5 fadeout 0.5
+
+    r "Wah, akhirnya sampai!"
+    p "Iyah." 
+
+    hide raina_masa_lalu
+    """
+    Pasirnya masih hangat-hangat panas, udaranya masih segar, bau laut yang terasa asin.
+
+    Cukup jarang buat ke sini, selain karena jauh, juga karena aku sudah disibukkan dengan kegiatan di desa.
+    """
     
+    show raina_masa_lalu happy at sprite_karakter with dissolve
+    p "Waktunya kita patroli."
+    r "Ayo!"
+
+    hide raina_masa_lalu
+    """
+    Kami memulai penelusuran dari sisi Barat pantai. 
+
+    Titik yang kami ambil adalah titik yang sama ketika para pedagang yang membawa Raina datang setahun yang lalu.
+
+    Kami mengecek mulai dari keadaan pasir, udara, air laut, dan sebagainya.
+
+    Kami juga mengecek apakah ada benda-benda aneh yang muncul.
+
+    Kalau ada pertanyaan mengapa sampai ada misi seperti ini, itu karena sejak 5 tahun yang lalu ada berbagai keanehan yang terjadi pada desa ini.
+
+    Namun detailnya tidak bisa kuungkap lebih lanjut, karena aku juga kurang tahu.
+    
+    Kami terus menelusuri menuju arah Timur pantai, hingga kami berhenti untuk istirahat di dekat sebuah batu besar di bibir pantai.
+    """
+
+    show raina_masa_lalu neutral at sprite_karakter with dissolve
+    p "Kita istirahat aja dulu."
+    r "Oke."
+    
+    hide raina_masa_lalu
+    "..."
+    "...."
+
+    show raina_masa_lalu neutral at sprite_karakter with dissolve
+
+    stop music
+
+    r "Hey, [player!t]."
+    p "Apa?"
+    r "Aku penasaran, apa kau punya keinginan atau semacamnya?"
+    p "Kenapa tiba-tiba nanya begitu?"
+    r happy6 "Yah, gak ada apa-apa, sih."
+    r happy5 "Cuman penasaran aja."
+    p "Hmm"
+    
+    """Keinginan? Bisa dibilang, sudah cukup lama aku berada di desa ini. 
+    
+    Sudah sejak lahir, lebih tepatnya.
+
+    Orang tuaku juga sudah tidak ada.
+
+    Selain menjadi berguna buat desa, tidak ada hal lain yang ingin kulakukan.
+
+    Tetapi sejak aku bertemu dengannya, aku sepertinya telah menemukan jawabannya.
+
+    Apa yang harus kubalas? 
+    
+    Apa aku perlu mengatakannya sekarang?
+    """
+
+    menu:
+        "Aku menyukaimu.":
+            jump adventurer_adegan004_menyelidiki_pantai_romanceroute
+        "Ingat mendiang.":
+            jump adventurer_adegan004_menyelidiki_pantai_adventureroute
+    
+    label adventurer_adegan004_menyelidiki_pantai_romanceroute:
+        p "Sebenarnya, aku pengen mengatakan sesuatu kepadamu."
+
+        show raina_masa_lalu confused at sprite_karakter
+        r "Kenapa tiba-tiba?"
+        p "Aku...{w} Menyukaimu."
+        r "..."
+
+        show raina_masa_lalu shy2_half
+        r "Eh?!"
+        r "Sejak kapan?"
+        p "Mungkin, sekitar setengah tahun belakangan ini."
+
+        show raina_masa_lalu shy_little
+        r "O-Oke."
+        p "Dan aku ingin kalau kita {w}menjalin status di atas berteman."
+        p "Setidaknya itulah, {w}keinginanku."
+
+        show raina_masa_lalu noclue_little
+        r "Eh, begitu?"
+        r "Hmm"
+
+        hide raina_masa_lalu
+        "Dia tampak sedang berpikir keras."
+        "Apa aku memang terlalu tiba-tiba?"
+
+        show raina_masa_lalu happy4_little at sprite_karakter with dissolve
+
+        play music happy_ending fadein 0.5 fadeout 0.5
+        
+        r "Fufu"
+
+        show raina_masa_lalu happy3_little
+        r "I'm in your care."
+        p "Eh?"
+        r "Maksudnya, aku akan menerima permintaanmu."
+
+        if Bond > 20:
+            scene cg masa_lalu_2 with flash
+        r "Mohon bantuannya, [player!t]!"
+
+        """Lalu semenjak hari itu, aku dan Raina berpacaran.
+        
+        Dia juga tampak senang.
+
+        Syukurlah.
+
+        Setelahnya, kami langsung kembali ke balai kota.
+        """
+
+        call adding( "Trust" , + 9) from _call_adding_11 # Kepercayaan
+
+        pause 0.3
+
+        call adding( "Bond" , + 15) from _call_adding_12 # Ikatan/Kedekatan
+
+        pause 0.3
+
+        call adding( "Knowledge" , + 2) from _call_adding_13 # Pengetahuan akan MC
+
+        pause 0.3
+
+        call adding( "Interest" , + 7) from _call_adding_14 # Ketertarikan
+
+        if Bond > 20:
+            hide cg masa_lalu_2 with flash
+
+        jump masa_lalu_epilog
+
+    label adventurer_adegan004_menyelidiki_pantai_adventureroute:
+        p "Sebenarnya. Aku ingin menjadi penjaga garis pantai."
+
+        show raina_masa_lalu confused at sprite_karakter
+        r "Penjaga garis pantai?"
+        p "Iyah."
+        r "Apa aku boleh tahu alasannya?"
+        p "Itu pekerjaan ayahku dulu."
+
+        show raina_masa_lalu shock_little
+        r "Ah."
+
+        show raina_masa_lalu shy2
+
+        play music flashback fadein 0.5 fadeout 0.5
+        
+        r "Itu..."
+
+        show raina_masa_lalu happy5
+        r "Maaf."
+        p "Tak apa. Lagipula itu sudah lama, juga."
+        p "Ayah sangat gagah saat itu, walau yang dia lawan sangat sulit untuk dikalahkan."
+
+        show raina_masa_lalu neutral
+        p "Yah, lawannya mundur sih, tapi ayah sudah tidak tertolong."
+        p "Aku jelas bersedih saat itu, tapi aku juga jadi bertekad untuk meneruskan kerjaan ayah."
+        p "Aku masih 12 tahun saat itu, jadi mungkin aku masih tampak kekanak-kanakan saat mengatakannya pada ibu."
+        r "Ibumu..."
+        p "Ah, ibu meninggal beberapa bulan setelahnya."
+        p "Tubuhnya memang tidak sehat sejak lama, sih."
+
+        show raina_masa_lalu sad_little
+        p "Sejak saat itu, aku diasuh oleh bibi yang merawatmu sekarang hingga aku sanggup tinggal sendiri."
+        r "Jadi begitu."
+        p "Eh, kau nangis?!"
+        r "Habisnya, setelah setahunan ini aku penasaran, akhirnya aku tahu, jadi..."
+        p "Gak usah ditangisi. Yang ditinggal aja udah tabah."
+        hide raina_masa_lalu
+
+        show bg langit_sore with dissolve
+        """
+        Setelah kami beristirahat, kami pun melanjutkan penelusuran hingga sore hari.
+
+        Lalu kami kembali ke balai kota untuk melaporkan hasil penelusuran kami.
+
+        Hasil yang damai, sih. Namun itulah yang kami satu desa inginkan.
+        """
+
+        call adding( "Trust" , + 2) from _call_adding_15 # Kepercayaan
+
+        pause 0.3
+
+        call adding( "Bond" , + 7) from _call_adding_16 # Ikatan/Kedekatan
+
+        pause 0.3
+
+        call adding( "Knowledge" , + 15) from _call_adding_17 # Pengetahuan akan MC
+
+        pause 0.3
+
+        call adding( "Interest" , + 12) from _call_adding_18 # Ketertarikan
+
+        jump masa_lalu_epilog
+
 label adventurer_adegan002_mengumpulkan_material:
     hide raina_masa_lalu with dissolve
     
@@ -599,27 +829,86 @@ label adventurer_adegan002_mengumpulkan_material:
     hide raina_masa_lalu with dissolve
     
     "Setelahnya, kami pulang."
+    hide bg balai_kota with dissolve
+
+    show bg r_utama with dissolve
+    p "Oke, keranjang dan sabitnya sudah ada."
     
-    jump masa_lalu_epilog
+    show raina_masa_lalu neutral at sprite_karakter
+    r "Aku juga udah siapin makanannya."
+    r "Siapa tahu aja."
+    p "Okelah."
+    p "Ayo berangkat!"
+
+    show raina_masa_lalu happy3_little
+    r "Ayo!"
+    hide raina_masa_lalu
     
-label adventurer_adegan002_menjelajahi_reruntuhan:
-    hide raina_masa_lalu with dissolve
-    
-    pause 1.5
-    
+    stop sound 
+
+    hide bg r_utama with dissolve
+
+    show bg js_masuk_hutan with dissolve
+    "..."
+    "...."
+    p "Kita sudah sampai."
+
     show raina_masa_lalu neutral at sprite_karakter with dissolve
-    r "Oke, misi kita sudah terdaftar."
-    
-    show raina_masa_lalu blink
-    r "Ayo, pulang."
+    r "Iyah."
+    p "Okelah, langsung saja, kalo begitu."
     hide raina_masa_lalu with dissolve
+
+    "..."
+    "...."
+    "....."
+    "......"
+    p "Mungkin sudah terkumpul beberapa."
+
+    show raina_masa_lalu neutral at sprite_karakter with dissolve
+
+    play music hari_senang2 fadein 0.5 fadeout 0.5
+        
+    r "Kalau gitu, ayo istirahat."
+    p "Ya."
+    """
+    Material yang dibutuhkan tidak banyak untuk kali ini, hanya beberapa tanaman herbal untuk obat luka ringan dan demam ringan.
+
+    Juga, tampaknya sayang kalau tidak menikmati sejuknya hutan hari ini.
+    """
+    r "Hari ini aku buatkan kentang rebus sama sambalnya."
+    p "Woah, mantap!"
+    r "Hehe"
+    hide raina_masa_lalu
+
+    "..."
+    "...."
+
+    p "Okelah, ayo kita lanjutkan nyarinya. Tinggal dikit lagi."
+
+    show raina_masa_lalu neutral at sprite_karakter with dissolve
+    r "Ayo."
+    hide raina_masa_lalu
     
-    "Kami pun pulang."
+    show bg langit_sore with dissolve
+    """
+    Lalu setelahnya, kami melanjutkan misi pengumpulan.
+
+    Dan ketika langit sudah menjadi jingga kemerahan, kami pun kembali ke balai kota untuk pelaporan dan penyerahan material.
+
+    Dan kami terus melakukan hal tersebut dalam beberapa hari ke depan.
+    """
+    
+
+    jump masa_lalu_epilog
 
 label masa_lalu_epilog:
+    hide cg
+    hide bg
+    hide raina_masa_lalu
+
     "Terima kasih telah memainkan Visual Novel ini. Untuk sekarang hanya sampai sini dulu."
     "Silahkan tunggu {i}full release{/i}-nya, ya? ;)"
     
-    call ending_screen()
+    call screen ending_screen
     
 return

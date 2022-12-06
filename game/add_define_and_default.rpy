@@ -33,6 +33,8 @@ define happy = "audio/airtone_-_reCreation_1.mp3"
 define keadaan_genting = "audio/airtone_-_sleepwalking.mp3"
 define dalam_reruntuhan = "audio/rocavaco_-_Adagio_teru.mp3"
 define bertarung = "audio/Karstenholymoly_-_The_night_is_calling.mp3"
+define happy_ending = "audio/Code Lyoko Evolution - Code Lyoko Evolution- love song.mp3"
+define people = "<from 5>audio/People_Around.mp3"
 
 ## Default key
 # Indikator Raina
@@ -45,6 +47,9 @@ default Interest = 3 # Ketertarikan
 default flag = False
 default player = ""
 
+## Pada raina_masa_lalu
+# Variabel penentu Raina tinggal seatap dengan MC
+default tinggal_seatap = False
 
 ## Variabel item
 default punya_potion_debuff_poison = False

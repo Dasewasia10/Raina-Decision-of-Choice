@@ -274,34 +274,23 @@ screen choice(items):
     style_prefix "choice"
     
     for i in items:
-        if len(items) % 2 == 0 or len(items) == 1:
-            vpgrid:
+        vpgrid:
+            if len(items) % 2 == 0 or len(items) == 1:
                 cols 2
-                allow_underfull True
-                
-                xalign 0.5
-                yalign 0.6
-                yanchor 0.5
-
-                spacing (2 * gui.choice_spacing)
-                
-                for i in items:
-                    textbutton i.caption action i.action
-                    
-        if len(items) % 3 == 0:
-            vpgrid:
+            if len(items) % 3 == 0:
                 cols 3
-                allow_underfull True
-                
-                xalign 0.5
-                yalign 0.6
-                yanchor 0.5
 
-                spacing gui.choice_spacing
-                
-                for i in items:
-                    textbutton i.caption action i.action
+            allow_underfull True
+            
+            xalign 0.5
+            yalign 0.6
+            yanchor 0.5
 
+            spacing gui.choice_spacing
+            
+            for i in items:
+                textbutton i.caption action i.action
+                    
         for n, i in enumerate(items, 1): # n would be the number starting from 1
             if n<10:
                 key str(n) action i.action
@@ -310,13 +299,6 @@ screen choice(items):
 style choice_hbox is hbox
 style choice_button is button
 style choice_button_text is button_text
-
-style choice_hbox:
-    xalign 0.5
-    yalign 0.6
-    yanchor 0.5
-
-    spacing gui.choice_spacing
 
 style choice_button is default:
     properties gui.button_properties("choice_button")

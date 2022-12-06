@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/ending.rpy", line 11: reached end of line when expecting ':'.
-    if 
-       ^
+File "game/ending.rpy", line 6: 'prefix' is not a keyword argument or valid child for the screen statement.
+    prefix "ending"
+          ^
 
 Ren'Py Version: Ren'Py 8.0.2.22081402
-Tue Nov  8 13:55:36 2022
+Tue Dec  6 04:48:38 2022

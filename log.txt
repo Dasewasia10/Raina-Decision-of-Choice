@@ -1,51 +1,36 @@
-Tue Nov  8 14:27:19 2022
-Windows-10-10.0.19043
+Tue Dec  6 13:06:38 2022
+Windows-10-10.0.19045
 Ren'Py 8.0.2.22081402
  
 
-Bootstrap to the start of init.init took 0.12s
-Early init took 0.04s
-Loader init took 1.21s
-Loading error handling took 0.10s
-Loading script took 1.15s
-Loading save slot metadata. took 0.27s
+Bootstrap to the start of init.init took 0.15s
+Early init took 0.00s
+Loader init took 0.08s
+Loading error handling took 0.28s
+Loading script took 5.41s
+Loading save slot metadata. took 0.09s
 Loading persistent took 0.00s
 Faled to initialize steam: FileNotFoundError("Could not find module 'D:\\Aplikasi\\Ren'Py\\renpy-7.4.10-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.23s
-Loading analysis data took 0.04s
-Analyze and compile ATL took 0.01s
+ - Init at renpy/common/00library.rpy:422 took 0.44800 s.
+Running init code took 0.88s
+Loading analysis data took 0.00s
+Analyze and compile ATL took 0.04s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\asus\\AppData\\Roaming/RenPy/backups\\Raina Decision of Choice':
-Dump and make backups. took 0.17s
+Dump and make backups. took 0.68s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.05s
+Initial gc. took 0.18s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.01s
 Cleaning stores took 0.00s
-Init translation took 0.08s
-Build styles took 0.01s
-Load screen analysis took 0.01s
-Analyze screens took 0.03s
-Save screen analysis took 0.09s
-Prepare screens took 0.14s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.09s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.29s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1366, 768)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) UHD Graphics 600'
-Version: b'4.6.0 - Build 27.20.100.8681'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1184, 666) drawable=(1184, 666)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1920, 1080) physical=(1366, 768) drawable=(1366, 768)
-Maximum texture size: 4096x4096
+Init translation took 0.34s
+Build styles took 0.07s
+Load screen analysis took 0.00s
+Analyze screens took 0.30s
+Save screen analysis took 0.25s
+Prepare screens took 1.49s
+Save pyanalysis. took 0.31s
+Save bytecode. took 0.34s

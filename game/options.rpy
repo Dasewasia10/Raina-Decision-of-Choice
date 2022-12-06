@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## Versi Permainan.
 
-define config.version = "0.35"
+define config.version = "0.4"
 
 ## Tahun
 define year = "2022"
