@@ -53,9 +53,9 @@ label adventurer_adegan_prolog:
 
         show bg pantai with fade
         """
-        Ah, waktunya istirahat. 
-
-	    Jalan-jalan sebentar, lah.
+        Ah, waktunya istirahat.
+        
+        Jalan-jalan sebentar, lah.
         """
         
         jump masa_lalu_prolog

@@ -106,7 +106,7 @@ label start:
                 "Hidup sederhana dengan alam yang segar":
                     "Baguslah kalau sudah milih."
                     "Selamat menikmati alur ceritamu! :)"
-                    $ persistent.raina_in_masa_lalu = True
+                    # $ persistent.raina_in_masa_lalu = True
                     jump adventurer_adegan_prolog
                     
                 "Aku tertarik menjadi komikus":
@@ -119,6 +119,6 @@ label start:
                     #jump pilih
                     # jump ???_adegan001
     
-$ persistent.runtime = 0
+# $ persistent.runtime = 0
 $ calc_total_run()
 $ MainMenu(confirm=False)() # return 

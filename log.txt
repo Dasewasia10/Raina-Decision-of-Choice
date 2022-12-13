@@ -1,36 +1,35 @@
-Tue Dec  6 13:06:38 2022
+Tue Dec 13 12:47:13 2022
 Windows-10-10.0.19045
 Ren'Py 8.0.2.22081402
  
 
-Bootstrap to the start of init.init took 0.15s
+Bootstrap to the start of init.init took 0.12s
 Early init took 0.00s
-Loader init took 0.08s
-Loading error handling took 0.28s
-Loading script took 5.41s
-Loading save slot metadata. took 0.09s
+Loader init took 0.09s
+Loading error handling took 0.40s
+Loading script took 4.17s
+Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Faled to initialize steam: FileNotFoundError("Could not find module 'D:\\Aplikasi\\Ren'Py\\renpy-7.4.10-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
- - Init at renpy/common/00library.rpy:422 took 0.44800 s.
-Running init code took 0.88s
+Running init code took 0.30s
 Loading analysis data took 0.00s
-Analyze and compile ATL took 0.04s
+Analyze and compile ATL took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\asus\\AppData\\Roaming/RenPy/backups\\Raina Decision of Choice':
-Dump and make backups. took 0.68s
+Dump and make backups. took 0.12s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.18s
+Initial gc. took 0.05s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.01s
 Cleaning stores took 0.00s
-Init translation took 0.34s
-Build styles took 0.07s
+Init translation took 0.08s
+Build styles took 0.01s
 Load screen analysis took 0.00s
-Analyze screens took 0.30s
-Save screen analysis took 0.25s
-Prepare screens took 1.49s
-Save pyanalysis. took 0.31s
-Save bytecode. took 0.34s
+Analyze screens took 0.07s
+Save screen analysis took 0.04s
+Prepare screens took 0.29s
+Save pyanalysis. took 0.04s
+Save bytecode. took 0.08s
