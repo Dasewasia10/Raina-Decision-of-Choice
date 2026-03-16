@@ -327,22 +327,20 @@ style credit_text:
     size 30
     
 ## Loading screen di pertengahan game
+## Loading screen di pertengahan game
 screen loading_screen_ingame(message):
     zorder 101
     
     add "gui/loading_tips_screen.png"
     
+    # Gunakan default agar di-generate sekali saat screen dipanggil dan aman dari kompilator AST
+    default tips_list = ["Item yang akan diambil ketika persiapan terkadang {i}random{/i}.", "Jangan sembarangan percaya dengan orang lain.", "Raina akan selalu menemanimu, kapanpun itu.", "Raina akan selalu menemanimu, dimanapun itu."]
+    default to_random_tips = renpy.random.choice(tips_list)
+    
     frame:
         style "delete_frame_bg"
         
-        python:
-            tips = ["Item yang akan diambil ketika persiapan terkadang {i}random{/i}.", "Jangan sembarangan percaya dengan orang lain.", "Raina akan selalu menemanimu, kapanpun itu.", "Raina akan selalu menemanimu, dimanapun itu."]
-            to_random_tips = renpy.random.choice(tips)
-            
-            random_tips = []
-            random_tips.append(to_random_tips)
-        
-        text _("[random_tips[0]]"):
+        text _("[to_random_tips]"):
             size 40
             xalign 0.45
             yalign 0.83

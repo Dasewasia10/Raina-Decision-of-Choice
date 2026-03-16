@@ -1,35 +1,46 @@
-Tue Dec 13 12:47:13 2022
-Windows-10-10.0.19045
-Ren'Py 8.0.2.22081402
- 
+2026-03-16 17:44:12 UTC
+Windows-10-10.0.19045-SP0
+Ren'Py 8.5.2.26010301
 
-Bootstrap to the start of init.init took 0.12s
-Early init took 0.00s
-Loader init took 0.09s
-Loading error handling took 0.40s
-Loading script took 4.17s
-Loading save slot metadata. took 0.02s
-Loading persistent took 0.00s
-Faled to initialize steam: FileNotFoundError("Could not find module 'D:\\Aplikasi\\Ren'Py\\renpy-7.4.10-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.30s
-Loading analysis data took 0.00s
-Analyze and compile ATL took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\asus\\AppData\\Roaming/RenPy/backups\\Raina Decision of Choice':
-Dump and make backups. took 0.12s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.05s
+Early init took 59 ms
+Loading error handling took 26 ms
+Loading script took 129 ms
+Loading save slot metadata took 24 ms
+Loading persistent took 0 ms
+Failed to initialize steam: Exception('steamapi.InitFlat returned 2 (Cannot create IPC pipe to Steam client process.  Steam is probably not running.)')
+Running init code took 144 ms
+Loading analysis data took 8 ms
+Analyze and compile ATL took 2 ms
+Reloading save slot metadata took 2 ms
+Dump and make backups took 46 ms
+Cleaning cache took 0 ms
+Making clean stores took 0 ms
+Initial gc took 78 ms
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.01s
-Cleaning stores took 0.00s
-Init translation took 0.08s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.07s
-Save screen analysis took 0.04s
-Prepare screens took 0.29s
-Save pyanalysis. took 0.04s
-Save bytecode. took 0.08s
+Creating interface object took 2 ms
+Init translation took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 30 ms
+Analyze screens took 1 ms
+Save screen analysis took 0 ms
+Save pyanalysis took 0 ms
+Save bytecode took 0 ms
+Running _start took 1 ms
+Interface start took 368 ms
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'Intel'
+Renderer: 'Intel(R) HD Graphics 4400'
+Version: '4.3.0 - Build 20.19.15.4531'
+Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1440, 'current_h': 900, 'refresh_rate': 60, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
+Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(1338, 753)
+Maximum texture size: 4096x4096
+Cleaning stores took 0 ms
+Load screen analysis took 18 ms
+Analyze screens took 0 ms
+Running _start took 2 ms
